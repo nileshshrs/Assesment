@@ -17,7 +17,7 @@ const Layout = () => {
             </aside>
 
             {/* Right side (scrollable) */}
-            <ScrollArea className="flex-1 overflow-y-auto p-3  bg-gray-200/50 rounded-sm shadow-2xl">
+            <ScrollArea className="flex-1 overflow-y-auto p-3  bg-gray-200/50 rounded-sm shadow-2xl @container">
                 <Outlet />
             </ScrollArea>
         </div>
