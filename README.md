@@ -32,36 +32,25 @@ A React TypeScript project featuring a product store with infinite scrolling, Re
 
 ## Project Structure
 ```text
-Tetris-Project/
-├── AI/
-│   └── TetrisAI.py             # Core AI logic and cost evaluation
-├── GA/
-│   ├── genetic_algorithm.py    # GA evolution logic
-│   ├── optimize.py             # GA training pipeline
-│   ├── tetris_ai.py            # Agent wrapper for GA
-│   └── gauntlet.py             # Gauntlet comparison of top agents
-├── notebooks/
-│   ├── agent_analysis.ipynb
-│   ├── extract_agent.ipynb
-│   ├── ga_plots.ipynb
-│   └── gauntlet_comparison.ipynb
-├── results/
-│   ├── GA/                     # GA generation logs
-│   └── gauntlet/               # Evaluation logs
-├── Tetris/
-│   ├── assets/
-│   │   ├── graphics/
-│   │   └── sound/
-│   ├── game.py
-│   ├── main.py                 # Entry point (AI-controlled Tetris)
-│   ├── held.py
-│   ├── lines.py
-│   ├── preview.py
-│   ├── score.py
-│   ├── settings.py
-│   └── timers.py
-├── requirements.txt
-└── README.md
+├─ src/
+│ ├─ api/
+│ │ └─ api.ts # Axios requests to fetch products
+│ ├─ hooks/
+│ │ └─ useItems.ts # Infinite query hook for products
+│ ├─ components/
+│ │ └─ Sidebar.tsx # Sidebar navigation component
+│ ├─ pages/
+│ │ ├─ Home.tsx # Product cards page
+│ │ └─ Data.tsx # Product table page
+│ ├─ Layout/
+│ │ └─ Layout.tsx # Main layout with cart dropdown and responsive menu
+│ ├─ store/
+│ │ ├─ slices/cartSlice.ts # Redux cart slice
+│ │ └─ store.ts # Redux store
+│ ├─ utils/
+│ │ └─ types.ts # Product type definition
+│ ├─ App.tsx # Main router setup
+│ └─ main.tsx # Entry point with providers
 ```
 
 ## Installation
