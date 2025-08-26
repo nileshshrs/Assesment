@@ -63,3 +63,20 @@ Tetris-Project/
 ├── requirements.txt
 └── README.md
 ```
+
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/nileshshrs/Assesment
+cd assessment
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+2. Run development server:
+```bash
+npm run dev
+```
