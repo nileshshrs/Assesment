@@ -6,7 +6,7 @@ export const useItems = (initialLimit = 3, step = 3) => {
   const query = useInfiniteQuery<Product[], Error>({
     queryKey: ["products", initialLimit],
     queryFn: ({ pageParam }) => fetchProducts((pageParam as number) ?? initialLimit),
-    getNextPageParam: (lastPage, allPages) => {
+    getNextPageParam: (_lastPage, allPages) => {
       // Increase limit by step for next fetch
       return (allPages.length + 1) * step + initialLimit - step;
     },
