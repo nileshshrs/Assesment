@@ -3,9 +3,12 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/utils/types";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slices/cartSlice";
 
 const Home = () => {
   const { items, isLoading, isError, error } = useItems(3, 3);
+  const dispatch = useDispatch();
 
   if (isLoading)
     return <div className="text-center py-10 text-gray-500 font-medium">Loading products...</div>;
@@ -20,12 +23,12 @@ const Home = () => {
   return (
     <div className="w-full space-y-6 [container-type:inline-size] px-5">
       <div className="hidden md:@block">
-        <div className="grid gap-10 @sm:grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4">
+        <div className="grid gap-10 place-items-center @sm:grid-cols-1 @md:grid-cols-2 @lg:grid-cols-4">
           <TooltipProvider>
             {items.map((item: Product) => (
               <Card
                 key={item.id}
-                className="bg-white text-black hover:shadow-lg transition min-h-[28rem] flex flex-col"
+                className="bg-white text-black hover:shadow-lg transition min-h-[28rem] flex flex-col w-80"
               >
                 <CardHeader className="p-0">
                   <img
@@ -48,7 +51,12 @@ const Home = () => {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-black text-white hover:bg-gray-800">Add to Cart</Button>
+                  <Button
+                    className="w-full bg-black text-white hover:bg-gray-800"
+                    onClick={() => dispatch(addToCart(item))}
+                  >
+                    Add to Cart
+                  </Button>
                 </CardFooter>
               </Card>
             ))}
@@ -56,12 +64,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="@md:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:@hidden">
+      <div className="@md:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center md:@hidden">
         <TooltipProvider>
           {items.map((item: Product) => (
             <Card
               key={item.id}
-              className="bg-white text-black hover:shadow-lg transition min-h-[28rem] flex flex-col mb-5"
+              className="bg-white text-black hover:shadow-lg transition min-h-[28rem] flex flex-col mb-5 w-80"
             >
               <CardHeader className="p-0">
                 <img
@@ -84,7 +92,12 @@ const Home = () => {
                 </p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full bg-black text-white hover:bg-gray-800">Add to Cart</Button>
+                <Button
+                  className="w-full bg-black text-white hover:bg-gray-800"
+                  onClick={() => dispatch(addToCart(item))}
+                >
+                  Add to Cart
+                </Button>
               </CardFooter>
             </Card>
           ))}

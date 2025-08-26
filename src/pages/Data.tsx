@@ -19,11 +19,9 @@ const Data = () => {
 
   return (
     <div className="w-full space-y-4">
-      {/* Horizontal Scroll Wrapper */}
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200 [container-type:inline-size]">
         <div className="min-w-[1200px]">
           <TooltipProvider>
-            {/* Vertical ScrollArea for table body */}
             <ScrollArea className=" w-full">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100 sticky top-0 z-10">
@@ -85,7 +83,6 @@ const Data = () => {
         </div>
       </div>
 
-      {/* Load More Button */}
       {items.length < 20 && (
         <div className="text-center mt-4">
           <Button onClick={() => fetchMore?.()} className="px-6 py-2">
