@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# Assessment Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React TypeScript project featuring a product store with infinite scrolling, Redux-powered cart, and TailwindCSS styling. Built with Vite, React Query, and ShadCN/ Radix UI components.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Product Listing**: Displays products fetched from [Fake Store API](https://fakestoreapi.com/) with infinite scroll.
+- **Cart Management**: Add, remove, and clear items using Redux Toolkit.
+- **Responsive Layout**: Adaptive grid layout for desktop and mobile.
+- **Product Table**: View products in a table with images, category, price, rating, and description.
+- **Dropdown Cart**: View cart items in a dropdown with image, title, price, remove option, and clear cart button.
+- **Tooltips**: Show full product titles on hover.
+- **Smooth UI**: Styled with TailwindCSS and ShadCN UI components.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Technologies Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React** 19
+- **TypeScript**
+- **Vite**
+- **TailwindCSS**
+- **Redux Toolkit**
+- **React Query (TanStack)** for data fetching
+- **ShadCN / Radix UI** components
+- **Axios** for API requests
+- **React Router v7** for routing
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+├─ src/
+│ ├─ api/
+│ │ └─ api.ts # Axios requests to fetch products
+│ ├─ hooks/
+│ │ └─ useItems.ts # Infinite query hook for products
+│ ├─ components/
+│ │ └─ Sidebar.tsx # Sidebar navigation component
+│ ├─ pages/
+│ │ ├─ Home.tsx # Product cards page
+│ │ └─ Data.tsx # Product table page
+│ ├─ Layout/
+│ │ └─ Layout.tsx # Main layout with cart dropdown and responsive menu
+│ ├─ store/
+│ │ ├─ slices/cartSlice.ts # Redux cart slice
+│ │ └─ store.ts # Redux store
+│ ├─ utils/
+│ │ └─ types.ts # Product type definition
+│ ├─ App.tsx # Main router setup
+│ └─ main.tsx # Entry point with providers
